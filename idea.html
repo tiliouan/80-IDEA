@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>80s Y2K Idea Generator</title>
+    
+    <!-- Google Fonts Import -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Bebas Neue', sans-serif; /* Apply Bebas Neue font */
+            text-align: center;
+            background-color: rgb(68, 27, 241); /* Y2K purple-blue */
+            color: rgb(196, 240, 22); /* Neon green */
+            padding: 50px;
+        }
+        #ideaBox {
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid rgb(196, 240, 22); /* Neon green */
+            background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent to match Y2K vibe */
+            color: rgb(196, 240, 22); /* Neon green */
+            width: 80%;
+            max-width: 600px;
+            font-size: 3.2em;
+        }
+        button {
+            padding: 1.2em;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            background-color: rgb(196, 240, 22); /* Neon green */
+            color: rgb(68, 27, 241); /* Y2K purple-blue */
+            border: 3.3px solid black; /* Black border */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 15px; /* Rounded button */
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        button:hover {
+            background-color: rgb(255, 255, 255); /* Bright hover effect */
+            color: rgb(68, 27, 241);
+            border-color: rgb(255, 255, 255); /* Change border color on hover */
+        }
+
+        h1 {
+            color: rgb(255, 255, 255); /* Bright white for headings */
+            text-shadow: 2px 2px rgb(196, 240, 22); /* Neon shadow effect */
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="ideaBox">Click the button to get a random idea!</div>
+    <br>
+    <button onclick="generateIdea()">Generate Idea</button>
+
+    <script>
+        const ideas = {
+            "Business & Professional Services": [ 
+                "Networking platform for industry professionals.",
+                "Virtual coworking space for freelancers.",
+                "Tool for tracking business expenses.",
+                "Platform for finding co-founders for startups."
+            ],
+            "Marketing & E-commerce": [
+                "Platform for creating and sharing infographics.",
+                "Dropshipping product research tool.",
+                "Blog dedicated to SEO tips and strategies.",
+                "Marketplace for digital products like eBooks or courses."
+            ],
+            // Add more categories and ideas here
+        };
+
+        function generateIdea() {
+            const categories = Object.keys(ideas);
+            const randomCategory = categories[Math.floor(Math.random() * categories.length)];
+            const randomIdea = ideas[randomCategory][Math.floor(Math.random() * ideas[randomCategory].length)];
+            document.getElementById('ideaBox').innerHTML = `<strong>Category:</strong> ${randomCategory}<br><strong>Idea:</strong> ${randomIdea}`;
+        }
+    </script>
+
+</body>
+</html>
